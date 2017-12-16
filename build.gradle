@@ -1,0 +1,38 @@
+group 'Lab6_db'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile group: 'org.hibernate', name: 'hibernate-gradle-plugin', version: '5.2.12.Final'
+    testRuntime("org.junit.platform:junit-platform-launcher:1.0.2")
+    testRuntime("org.junit.jupiter:junit-jupiter-engine:5.0.2")
+    testRuntime("org.junit.vintage:junit-vintage-engine:4.12.2")
+
+    testCompile("junit:junit:4.12")
+    testRuntime("org.junit.vintage:junit-vintage-engine:4.12.2")
+
+    testCompile("org.junit.jupiter:junit-jupiter-api:5.0.2")
+    testRuntime("org.junit.jupiter:junit-jupiter-engine:5.0.2")
+}
+buildscript {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'org.liquibase:liquibase-core:3.4.1'
+        classpath "org.liquibase:liquibase-gradle-plugin:1.1.1"
+        classpath 'org.junit.platform:junit-platform-gradle-plugin:1.0.2'
+        classpath 'com.github.noraui:ojdbc7:12.1.0.2'
+
+    }
+}
+

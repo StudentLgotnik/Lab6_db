@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="Entity.CountriesEntity" table="COUNTRIES" schema="SYSTEM">
+        <id name="country">
+            <column name="COUNTRY" sql-type="varchar2(30)" length="30" not-null="true"/>
+        </id>
+        <property name="mainland">
+            <column name="MAINLAND" sql-type="varchar2(30)" length="30" not-null="true"/>
+        </property>
+        <property name="population">
+            <column name="POPULATION" sql-type="number(*)" precision="2147483646" not-null="true"/>
+        </property>
+        <property name="capital">
+            <column name="CAPITAL" sql-type="varchar2(30)" length="30" not-null="true"/>
+        </property>
+        <property name="timezone">
+            <column name="TIMEZONE" sql-type="varchar2(30)" length="30" not-null="true"/>
+        </property>
+        <bag name="timezoneEntities" table="CountriesTimeZone" lazy="false" inverse="true">
+            <key column="TimeZone"/>
+            <many-to-many class="Entity.TimezoneEntity" column="TimeZone"/>
+        </bag>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="Entity.CountriesemployerEntity" table="COUNTRIESEMPLOYER" schema="SYSTEM">
+        <id name="countries">
+            <column name="COUNTRIES" sql-type="varchar2(30)" length="30"/>
+        </id>
+        <property name="unemployed">
+            <column name="UNEMPLOYED" sql-type="varchar2(30)" length="30" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="Entity.TimezoneEntity" table="TIMEZONE" schema="SYSTEM">
+        <id name="timezone">
+            <column name="TIMEZONE" sql-type="varchar2(30)" length="30"/>
+        </id>
+        <property name="goverment">
+            <column name="GOVERMENT" sql-type="varchar2(30)" length="30"/>
+        </property>
+        <bag name="countriesEntities" table="CountriesTimeZone" lazy="false" inverse="true">
+            <key column="TimeZone"/>
+            <many-to-many class="Entity.CountriesEntity" column="TimeZone"/>
+        </bag>
+    </class>
+</hibernate-mapping>
