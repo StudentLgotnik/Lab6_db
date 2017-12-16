@@ -1,0 +1,20 @@
+language: java
+
+jdk:
+  - oraclejdk8
+
+install: true
+
+branches:
+  only:
+    - master
+before_install:
+  - git add -f gradle/wrapper/gradle-wrapper.jar
+  - chmod +x gradle/wrapper/gradle-wrapper.jar
+  - chmod +x gradlew
+
+script:
+  - ./gradlew test
+
+
+
